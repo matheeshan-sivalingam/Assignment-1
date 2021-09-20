@@ -44,6 +44,7 @@ public class Laptop implements Product {
                     break;
                 }
             }
+        //Catch statement in the event that the File is not found
         }catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

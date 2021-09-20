@@ -23,18 +23,26 @@ public class Desktop implements Product{
  
     public void getPrice() {
         try{
+            //Use Scanner to read computerprices.txt to find price of desktop
             File productList = new File ("src\\computerprices.txt");
+            //Declare file
             Scanner myReader = new Scanner (productList);
+            //Use while loop to go through each line in txt file
             while (myReader.hasNextLine()) {
+                //Obtain string from line
                 String data = myReader.nextLine();
-                String [] product = data.split(" ",2);
-                if (product[0].equals("Desktop"))
-                {
+                //Split the string into 2 by space
+                String[] product = data.split(" ", 2);
+                //If the first part of string states laptop, take value price set for laptop
+                if (product[0].equals("Desktop")) {
+                    //Declare and set variable to price (which is the second part of the split string)
                     double cost = Double.parseDouble(product[1]);
+                    //Set the price for this specific instance to cost
                     price = cost;
                     break;
                 }
             }
+        //Catch statement in the event that the File is not found
         }catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
